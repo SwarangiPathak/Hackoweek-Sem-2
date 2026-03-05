@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MCQ Quiz</title>
+
+<style>
+body{
+    font-family: Arial;
+    background:#f4f4f4;
+    text-align:center;
+}
+
+.container{
+    background:white;
+    width:60%;
+    margin:auto;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 0 10px gray;
+}
+
+.question{
+    font-size:18px;
+    margin:20px 0;
+}
+
+button{
+    padding:10px 20px;
+    font-size:16px;
+    margin-top:20px;
+    background:#4CAF50;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Student Quiz</h2>
+
+<form id="quizForm">
+
+<div class="question">
+<p>1. What does CPU stand for?</p>
+<input type="radio" name="q1" value="0"> Central Process Unit<br>
+<input type="radio" name="q1" value="1"> Central Processing Unit<br>
+<input type="radio" name="q1" value="0"> Computer Personal Unit<br>
+<input type="radio" name="q1" value="0"> Control Processing Unit
+</div>
+
+<div class="question">
+<p>2. Which language is used for web pages?</p>
+<input type="radio" name="q2" value="1"> HTML<br>
+<input type="radio" name="q2" value="0"> Python<br>
+<input type="radio" name="q2" value="0"> Java<br>
+<input type="radio" name="q2" value="0"> C++
+</div>
+
+<div class="question">
+<p>3. What does RAM stand for?</p>
+<input type="radio" name="q3" value="1"> Random Access Memory<br>
+<input type="radio" name="q3" value="0"> Read Access Memory<br>
+<input type="radio" name="q3" value="0"> Run Access Memory<br>
+<input type="radio" name="q3" value="0"> Real Access Memory
+</div>
+
+<div class="question">
+<p>4. Which company created Java?</p>
+<input type="radio" name="q4" value="0"> Microsoft<br>
+<input type="radio" name="q4" value="1"> Sun Microsystems<br>
+<input type="radio" name="q4" value="0"> Google<br>
+<input type="radio" name="q4" value="0"> Apple
+</div>
+
+<div class="question">
+<p>5. Which tag is used for the largest heading in HTML?</p>
+<input type="radio" name="q5" value="1"> h1<br>
+<input type="radio" name="q5" value="0"> h6<br>
+<input type="radio" name="q5" value="0"> heading<br>
+<input type="radio" name="q5" value="0"> head
+</div>
+
+<button type="button" onclick="calculateScore()">Submit Quiz</button>
+
+</form>
+
+<h3 id="result"></h3>
+
+</div>
+
+<script>
+
+function calculateScore(){
+
+let score = 0;
+let answers = document.querySelectorAll('input[type="radio"]:checked');
+
+answers.forEach((answer)=>{
+score += Number(answer.value);
+});
+
+document.getElementById("result").innerHTML =
+"Your Score: " + score + " / 5";
+
+}
+
+</script>
+
+</body>
+</html>
