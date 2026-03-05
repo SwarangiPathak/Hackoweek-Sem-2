@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Local Shop - Products</title>
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    margin:0;
+    background:#fffbe6;
+}
+
+header{
+    background:#f4c430;
+    color:#333;
+    text-align:center;
+    padding:20px;
+}
+
+.container{
+    width:85%;
+    margin:auto;
+    padding:20px;
+}
+
+.products{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+    gap:20px;
+}
+
+.product-card{
+    background:white;
+    padding:15px;
+    border-radius:8px;
+    text-align:center;
+    box-shadow:0 0 8px rgba(0,0,0,0.1);
+}
+
+.product-card img{
+    width:100%;
+    height:150px;
+    object-fit:cover;
+    border-radius:5px;
+}
+
+.product-card h3{
+    color:#d4a017;
+}
+
+.price{
+    font-weight:bold;
+    margin:10px 0;
+}
+
+button{
+    padding:10px 15px;
+    border:none;
+    background:#f4c430;
+    color:#333;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#d4a017;
+    color:white;
+}
+
+footer{
+    text-align:center;
+    background:#f4c430;
+    color:#333;
+    padding:15px;
+    margin-top:30px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h1>Local Mart</h1>
+<p>Simple Online Product Listing</p>
+</header>
+
+<div class="container">
+
+<div class="products">
+
+<div class="product-card">
+<img src="https://via.placeholder.com/200">
+<h3>Coffee Mug</h3>
+<p class="price">₹250</p>
+<button>View</button>
+</div>
+
+<div class="product-card">
+<img src="https://via.placeholder.com/200">
+<h3>Notebook</h3>
+<p class="price">₹120</p>
+<button>View</button>
+</div>
+
+<div class="product-card">
+<img src="https://via.placeholder.com/200">
+<h3>Wireless Mouse</h3>
+<p class="price">₹450</p>
+<button>View</button>
+</div>
+
+<div class="product-card">
+<img src="https://via.placeholder.com/200">
+<h3>Water Bottle</h3>
+<p class="price">₹180</p>
+<button>View</button>
+</div>
+
+<div class="product-card">
+<img src="https://via.placeholder.com/200">
+<h3>Desk Lamp</h3>
+<p class="price">₹650</p>
+<button>View</button>
+</div>
+
+<div class="product-card">
+<img src="https://via.placeholder.com/200">
+<h3>Backpack</h3>
+<p class="price">₹900</p>
+<button>View</button>
+</div>
+
+<div class="product-card">
+<img src="https://via.placeholder.com/200">
+<h3>Bluetooth Speaker</h3>
+<p class="price">₹1200</p>
+<button>View</button>
+</div>
+
+<div class="product-card">
+<img src="https://via.placeholder.com/200">
+<h3>Phone Stand</h3>
+<p class="price">₹150</p>
+<button>View</button>
+</div>
+
+</div>
+
+</div>
+
+<footer>
+<p>© 2026 Local Mart | Small Business Store</p>
+</footer>
+
+</body>
+</html>
