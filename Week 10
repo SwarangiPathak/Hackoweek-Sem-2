@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web Development Bootcamp</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:white;
+    color:black;
+}
+
+/* Navigation */
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    background:black;
+    color:white;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+}
+
+/* Hero Section */
+
+.hero{
+    text-align:center;
+    padding:100px 20px;
+    background:#f5f5f5;
+}
+
+.hero h1{
+    font-size:40px;
+}
+
+.hero p{
+    font-size:18px;
+    margin:20px 0;
+}
+
+.hero button{
+    padding:12px 25px;
+    border:none;
+    background:black;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.hero button:hover{
+    background:#333;
+}
+
+/* Features */
+
+.features{
+    padding:60px 8%;
+    text-align:center;
+}
+
+.feature-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+    margin-top:30px;
+}
+
+.feature{
+    border:1px solid #ddd;
+    padding:25px;
+}
+
+/* Course Details */
+
+.course{
+    background:#f5f5f5;
+    padding:60px 8%;
+    text-align:center;
+}
+
+.course ul{
+    list-style:none;
+    padding:0;
+}
+
+.course li{
+    padding:8px 0;
+}
+
+/* CTA */
+
+.cta{
+    text-align:center;
+    padding:60px;
+}
+
+.cta button{
+    padding:15px 30px;
+    font-size:18px;
+    border:none;
+    background:black;
+    color:white;
+    cursor:pointer;
+}
+
+/* Footer */
+
+footer{
+    background:black;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+<div><b>CodeInstitute</b></div>
+<div>
+<a href="#">Home</a>
+<a href="#">Course</a>
+<a href="#">Contact</a>
+</div>
+</nav>
+
+<section class="hero">
+<h1>Web Development Bootcamp</h1>
+<p>Learn HTML, CSS, JavaScript and build real projects in 8 weeks.</p>
+<button>Enroll Now</button>
+</section>
+
+<section class="features">
+<h2>What You Will Learn</h2>
+
+<div class="feature-grid">
+
+<div class="feature">
+<h3>HTML & CSS</h3>
+<p>Build responsive websites from scratch.</p>
+</div>
+
+<div class="feature">
+<h3>JavaScript</h3>
+<p>Add interactivity and dynamic features.</p>
+</div>
+
+<div class="feature">
+<h3>Projects</h3>
+<p>Create real-world portfolio projects.</p>
+</div>
+
+<div class="feature">
+<h3>Career Support</h3>
+<p>Get guidance for internships and jobs.</p>
+</div>
+
+</div>
+</section>
+
+<section class="course">
+<h2>Course Details</h2>
+<ul>
+<li>Duration: 8 Weeks</li>
+<li>Mode: Online</li>
+<li>Level: Beginner to Intermediate</li>
+<li>Certificate on Completion</li>
+</ul>
+</section>
+
+<section class="cta">
+<h2>Start Your Web Development Journey</h2>
+<button>Register Now</button>
+</section>
+
+<footer>
+<p>© 2026 CodeInstitute Bootcamp</p>
+</footer>
+
+</body>
+</html>
