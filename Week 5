@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Traveller Blog</title>
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    margin:0;
+    background:#f2f2f2;
+}
+
+header{
+    background:#555;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+/* Navigation */
+
+nav{
+    background:#777;
+    padding:10px;
+    text-align:center;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 15px;
+    font-weight:bold;
+}
+
+nav a:hover{
+    text-decoration:underline;
+}
+
+/* Container */
+
+.container{
+    width:85%;
+    margin:auto;
+    padding:20px;
+}
+
+/* Blog Posts */
+
+.blog-post{
+    background:white;
+    padding:20px;
+    margin-bottom:20px;
+    border-radius:8px;
+    box-shadow:0 0 8px rgba(0,0,0,0.1);
+}
+
+.blog-post img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+    border-radius:5px;
+}
+
+.blog-post h2{
+    color:#444;
+}
+
+/* Footer */
+
+footer{
+    text-align:center;
+    padding:15px;
+    background:#555;
+    color:white;
+    margin-top:30px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h1>My Travel Blog</h1>
+<p>Stories From My Adventures</p>
+</header>
+
+<nav>
+<a href="#">Home</a>
+<a href="#">Trips</a>
+<a href="#">Gallery</a>
+<a href="#">Contact</a>
+</nav>
+
+<div class="container">
+
+<div class="blog-post">
+<img src="https://via.placeholder.com/800x200">
+<h2>Trip to Goa</h2>
+<p>
+I spent an amazing weekend in Goa enjoying the beaches, sunsets,
+and delicious seafood. The peaceful waves and vibrant nightlife
+made it one of my most memorable trips.
+</p>
+</div>
+
+<div class="blog-post">
+<img src="https://via.placeholder.com/800x200">
+<h2>Exploring Manali</h2>
+<p>
+Manali was full of snow-covered mountains and breathtaking views.
+I tried local food, visited Solang Valley, and experienced the
+cold mountain air which felt refreshing.
+</p>
+</div>
+
+<div class="blog-post">
+<img src="https://via.placeholder.com/800x200">
+<h2>Journey to Jaipur</h2>
+<p>
+Jaipur's palaces and forts were stunning. Walking through the
+historic streets and seeing the Hawa Mahal and Amber Fort made
+the trip feel like stepping into royal history.
+</p>
+</div>
+
+</div>
+
+<footer>
+<p>© 2026 Traveller Blog | Sharing My Journeys</p>
+</footer>
+
+</body>
+</html>
