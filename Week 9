@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weather Info Panel</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:linear-gradient(135deg,#4facfe,#00f2fe);
+    color:white;
+}
+
+header{
+    text-align:center;
+    padding:30px;
+}
+
+.container{
+    width:85%;
+    margin:auto;
+}
+
+/* Weather Cards */
+
+.weather-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+    margin-top:30px;
+}
+
+.card{
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(8px);
+    border-radius:12px;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 10px 20px rgba(0,0,0,0.2);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.city{
+    font-size:24px;
+    font-weight:bold;
+}
+
+.temp{
+    font-size:40px;
+    margin:10px 0;
+}
+
+.condition{
+    font-size:18px;
+}
+
+.details{
+    margin-top:10px;
+    font-size:14px;
+}
+
+footer{
+    text-align:center;
+    margin-top:40px;
+    padding:15px;
+    color:#eaeaea;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h1>Weather Information</h1>
+<p>Current weather in selected cities</p>
+</header>
+
+<div class="container">
+
+<div class="weather-grid">
+
+<!-- City 1 -->
+
+<div class="card">
+<div class="city">Mumbai</div>
+<div class="temp">32°C</div>
+<div class="condition">☀ Sunny</div>
+<div class="details">
+Humidity: 60% <br>
+Wind: 12 km/h
+</div>
+</div>
+
+<!-- City 2 -->
+
+<div class="card">
+<div class="city">Delhi</div>
+<div class="temp">28°C</div>
+<div class="condition">⛅ Partly Cloudy</div>
+<div class="details">
+Humidity: 55% <br>
+Wind: 10 km/h
+</div>
+</div>
+
+<!-- City 3 -->
+
+<div class="card">
+<div class="city">Bangalore</div>
+<div class="temp">24°C</div>
+<div class="condition">🌧 Light Rain</div>
+<div class="details">
+Humidity: 70% <br>
+Wind: 8 km/h
+</div>
+</div>
+
+</div>
+
+</div>
+
+<footer>
+<p>Static Weather Panel Demo (No API)</p>
+</footer>
+
+</body>
+</html>
