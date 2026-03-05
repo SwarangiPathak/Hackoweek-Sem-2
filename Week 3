@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tech Fest Registration</title>
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    background:#f8f4f0;
+    margin:0;
+}
+
+header{
+    background:#6b3e26;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+.container{
+    width:60%;
+    margin:30px auto;
+    background:white;
+    padding:25px;
+    border-radius:8px;
+    box-shadow:0px 0px 10px rgba(0,0,0,0.1);
+}
+
+h2{
+    color:#6b3e26;
+}
+
+form{
+    display:flex;
+    flex-direction:column;
+}
+
+label{
+    margin-top:10px;
+    font-weight:bold;
+}
+
+input, select, textarea{
+    padding:10px;
+    margin-top:5px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+button{
+    margin-top:20px;
+    padding:12px;
+    background:#6b3e26;
+    color:white;
+    border:none;
+    border-radius:5px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#4a2917;
+}
+
+footer{
+    text-align:center;
+    padding:15px;
+    background:#6b3e26;
+    color:white;
+    margin-top:30px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>TechFest 2026</h1>
+<p>College Innovation & Technology Event</p>
+</header>
+
+<div class="container">
+
+<h2>Event Registration Form</h2>
+
+<form>
+
+<label>Full Name</label>
+<input type="text" placeholder="Enter your name" required>
+
+<label>Email</label>
+<input type="email" placeholder="Enter your email" required>
+
+<label>Phone Number</label>
+<input type="tel" placeholder="Enter your phone number" required>
+
+<label>College Name</label>
+<input type="text" placeholder="Enter your college">
+
+<label>Select Event</label>
+<select>
+<option>Hackathon</option>
+<option>AI Workshop</option>
+<option>Robotics Competition</option>
+<option>Coding Challenge</option>
+</select>
+
+<label>Year of Study</label>
+<select>
+<option>1st Year</option>
+<option>2nd Year</option>
+<option>3rd Year</option>
+<option>4th Year</option>
+</select>
+
+<label>Additional Message</label>
+<textarea rows="4" placeholder="Any queries or comments"></textarea>
+
+<button type="submit">Register Now</button>
+
+</form>
+
+</div>
+
+<footer>
+<p>© 2026 College TechFest | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>
