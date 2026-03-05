@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BlueWave Restaurant Menu</title>
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    margin:0;
+    background:#f4f9ff;
+    color:#333;
+}
+
+header{
+    background:#0a4da3;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+header h1{
+    margin:0;
+}
+
+.container{
+    width:80%;
+    margin:auto;
+    padding:20px;
+}
+
+.category{
+    margin-bottom:30px;
+}
+
+.category h2{
+    border-bottom:3px solid #0a4da3;
+    padding-bottom:5px;
+    color:#0a4da3;
+}
+
+.menu-item{
+    display:flex;
+    justify-content:space-between;
+    padding:10px;
+    border-bottom:1px solid #ddd;
+}
+
+.menu-item span{
+    font-weight:bold;
+}
+
+footer{
+    text-align:center;
+    padding:15px;
+    background:#0a4da3;
+    color:white;
+    margin-top:30px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>BlueWave Restaurant</h1>
+<p>Fresh Taste • Quality Food</p>
+</header>
+
+<div class="container">
+
+<div class="category">
+<h2>Starters</h2>
+
+<div class="menu-item">
+<p>Veg Spring Rolls</p>
+<span>₹120</span>
+</div>
+
+<div class="menu-item">
+<p>Paneer Tikka</p>
+<span>₹180</span>
+</div>
+
+<div class="menu-item">
+<p>Chicken Lollipop</p>
+<span>₹220</span>
+</div>
+
+</div>
+
+
+<div class="category">
+<h2>Main Course</h2>
+
+<div class="menu-item">
+<p>Butter Paneer Masala</p>
+<span>₹240</span>
+</div>
+
+<div class="menu-item">
+<p>Chicken Biryani</p>
+<span>₹260</span>
+</div>
+
+<div class="menu-item">
+<p>Veg Fried Rice</p>
+<span>₹180</span>
+</div>
+
+</div>
+
+
+<div class="category">
+<h2>Beverages</h2>
+
+<div class="menu-item">
+<p>Cold Coffee</p>
+<span>₹90</span>
+</div>
+
+<div class="menu-item">
+<p>Lemon Soda</p>
+<span>₹60</span>
+</div>
+
+<div class="menu-item">
+<p>Mineral Water</p>
+<span>₹20</span>
+</div>
+
+</div>
+
+<div class="category">
+<h2>Desserts</h2>
+
+<div class="menu-item">
+<p>Chocolate Brownie</p>
+<span>₹120</span>
+</div>
+
+<div class="menu-item">
+<p>Vanilla Ice Cream</p>
+<span>₹80</span>
+</div>
+
+</div>
+
+</div>
+
+<footer>
+<p>© 2026 BlueWave Restaurant | Local Fresh Food</p>
+</footer>
+
+</body>
+</html>
