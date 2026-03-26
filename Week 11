@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Library Catalogue</title>
+
+<style>
+body {
+  font-family: Arial;
+  margin: 0;
+  background: #f4f4f4;
+}
+
+/* HEADER */
+header {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 15px;
+}
+
+/* CONTAINER */
+.container {
+  width: 80%;
+  margin: auto;
+  padding: 20px;
+}
+
+/* FORM */
+.form-box {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+input {
+  padding: 10px;
+  width: 70%;
+  margin-right: 10px;
+}
+
+button {
+  padding: 10px 15px;
+  background: teal;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* BOOK LIST */
+.book-list {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.book {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.book:last-child {
+  border-bottom: none;
+}
+
+/* RESPONSIVE */
+@media(max-width: 600px) {
+  input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Library Book Catalogue</h1>
+</header>
+
+<div class="container">
+
+  <!-- ADD BOOK UI -->
+  <div class="form-box">
+    <h3>Add Book</h3>
+    <input type="text" placeholder="Enter book title">
+    <button>Add</button>
+  </div>
+
+  <!-- SEARCH UI -->
+  <div class="form-box">
+    <h3>Search Book</h3>
+    <input type="text" placeholder="Enter title to search">
+    <button>Search</button>
+  </div>
+
+  <!-- BOOK LIST -->
+  <div class="book-list">
+    <h3>Book List (Max 5)</h3>
+
+    <div class="book">1. The Alchemist</div>
+    <div class="book">2. Atomic Habits</div>
+    <div class="book">3. Rich Dad Poor Dad</div>
+
+  </div>
+
+</div>
+
+</body>
+</html>
