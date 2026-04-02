@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Printer Queue - FIFO</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #dff5f2, #fce1e4);
+        color: #444;
+    }
+
+    h1 {
+        text-align: center;
+        margin-top: 20px;
+        color: #5c5c5c;
+    }
+
+    .container {
+        width: 75%;
+        margin: auto;
+        padding: 20px;
+        background: #ffffffcc;
+        border-radius: 20px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    input {
+        padding: 10px;
+        width: 220px;
+        border-radius: 10px;
+        border: none;
+        outline: none;
+        background: #f8f9fa;
+    }
+
+    button {
+        padding: 10px 15px;
+        margin: 5px;
+        border: none;
+        border-radius: 10px;
+        background: #b5ead7;
+        color: #444;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background: #9de0cb;
+        transform: scale(1.05);
+    }
+
+    .queue-box {
+        margin-top: 20px;
+        padding: 15px;
+        border-radius: 15px;
+        background: #fff;
+    }
+
+    .job {
+        padding: 10px;
+        margin: 5px 0;
+        background: #e0f7fa;
+        border-radius: 8px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .current {
+        margin-top: 20px;
+        text-align: center;
+        font-weight: bold;
+        font-size: 18px;
+        color: #666;
+    }
+</style>
+</head>
+
+<body>
+
+<h1>🖨️ Printer Queue (FIFO)</h1>
+
+<div class="container">
+    <input type="text" id="job" placeholder="Enter print job">
+    <button onclick="addJob()">Add Job</button>
+    <button onclick="processJob()">Process Job</button>
+
+    <div class="current" id="currentJob">Currently Printing: None</div>
+
+    <div class="queue-box">
+        <h3>📄 Print Queue</h3>
+        <div id="queueDisplay"></div>
+    </div>
+</div>
+
+<script>
+class Queue {
+    constructor() {
+        this.items = [];
+    }
+
+    enqueue(item) {
+        this.items.push(item);
+    }
+
+    dequeue() {
+        return this.items.shift();
+    }
+
+    isEmpty() {
+        return this.items.length === 0;
+    }
+
+    getAll() {
+        return this.items;
+    }
+}
+
+const printerQueue = new Queue();
+let currentJob = null;
+
+function addJob() {
+    const job = document.getElementById("job").value;
+
+    if (!job) {
+        alert("Enter a print job");
+        return;
+    }
+
+    printerQueue.enqueue(job);
+    document.getElementById("job").value = "";
+
+    updateUI();
+}
+
+function processJob() {
+    if (printerQueue.isEmpty()) {
+        alert("No jobs in queue");
+        return;
+    }
+
+    currentJob = printerQueue.dequeue();
+    updateUI();
+}
+
+function updateUI() {
+    const queueDiv = document.getElementById("queueDisplay");
+    queueDiv.innerHTML = "";
+
+    printerQueue.getAll().forEach((job, index) => {
+        queueDiv.innerHTML += `
+            <div class="job">
+                <span>${index + 1}. ${job}</span>
+                <span>Queued</span>
+            </div>
+        `;
+    });
+
+    document.getElementById("currentJob").innerText =
+        "Currently Printing: " + (currentJob || "None");
+}
+</script>
+
+</body>
+</html>
