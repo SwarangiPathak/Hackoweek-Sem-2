@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Contact Book - Binary Search</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #ffe5b4, #e0c3fc);
+        color: #444;
+    }
+
+    h1 {
+        text-align: center;
+        margin-top: 20px;
+        color: #5a4e4e;
+    }
+
+    .container {
+        width: 75%;
+        margin: auto;
+        padding: 20px;
+        background: #ffffffcc;
+        border-radius: 20px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    input {
+        padding: 10px;
+        margin: 5px;
+        border-radius: 10px;
+        border: none;
+        outline: none;
+        background: #fff;
+        width: 180px;
+    }
+
+    button {
+        padding: 10px 15px;
+        border: none;
+        border-radius: 10px;
+        background: #ffb7b2;
+        color: #444;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background: #ff9aa2;
+        transform: scale(1.05);
+    }
+
+    .list {
+        margin-top: 20px;
+        padding: 10px;
+        border-radius: 15px;
+        background: #fff;
+    }
+
+    .contact {
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .result {
+        margin-top: 15px;
+        text-align: center;
+        font-weight: bold;
+        color: #666;
+    }
+</style>
+</head>
+
+<body>
+
+<h1>📇 Contact Book (Binary Search)</h1>
+
+<div class="container">
+
+    <input type="text" id="name" placeholder="Name">
+    <input type="text" id="phone" placeholder="Phone">
+    <button onclick="addContact()">Add</button>
+    <button onclick="sortContacts()">Sort A-Z</button>
+
+    <br>
+
+    <input type="text" id="searchName" placeholder="Search Name">
+    <button onclick="searchContact()">Search</button>
+
+    <div class="result" id="result"></div>
+
+    <div class="list" id="contactList"></div>
+</div>
+
+<script>
+let contacts = [];
+
+function addContact() {
+    const name = document.getElementById("name").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+
+    if (!name || !phone) {
+        alert("Enter valid details");
+        return;
+    }
+
+    contacts.push({ name, phone });
+    updateUI();
+
+    document.getElementById("name").value = "";
+    document.getElementById("phone").value = "";
+}
+
+function sortContacts() {
+    contacts.sort((a, b) => a.name.localeCompare(b.name));
+    updateUI();
+}
+
+function binarySearch(name) {
+    let left = 0;
+    let right = contacts.length - 1;
+
+    while (left <= right) {
+        let mid = Math.floor((left + right) / 2);
+
+        if (contacts[mid].name === name) {
+            return contacts[mid];
+        } else if (contacts[mid].name < name) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+
+    return null;
+}
+
+function searchContact() {
+    const name = document.getElementById("searchName").value.trim();
+
+    if (!name) {
+        alert("Enter name to search");
+        return;
+    }
+
+    const result = binarySearch(name);
+
+    document.getElementById("result").innerText =
+        result ? `Found: ${result.name} - ${result.phone}` : "Not Found";
+}
+
+function updateUI() {
+    const listDiv = document.getElementById("contactList");
+    listDiv.innerHTML = "";
+
+    contacts.forEach(c => {
+        listDiv.innerHTML += `
+            <div class="contact">
+                <span>${c.name}</span>
+                <span>${c.phone}</span>
+            </div>
+        `;
+    });
+}
+</script>
+
+</body>
+</html>
