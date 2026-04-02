@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Browser History - Stack</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #ffd6e0, #cde7ff);
+        color: #444;
+    }
+
+    h1 {
+        text-align: center;
+        margin-top: 20px;
+        color: #5a5a5a;
+    }
+
+    .container {
+        width: 80%;
+        margin: auto;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.6);
+        border-radius: 20px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+
+    input {
+        padding: 10px;
+        width: 250px;
+        border-radius: 10px;
+        border: none;
+        outline: none;
+        background: #fff;
+    }
+
+    button {
+        padding: 10px 15px;
+        margin: 5px;
+        border: none;
+        border-radius: 10px;
+        background: #a0c4ff;
+        color: #fff;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background: #7aa7ff;
+        transform: scale(1.05);
+    }
+
+    .display {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .box {
+        flex: 1;
+        padding: 15px;
+        border-radius: 15px;
+        background: #ffffffaa;
+    }
+
+    .box h3 {
+        text-align: center;
+        color: #666;
+    }
+
+    .item {
+        padding: 6px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .current {
+        margin-top: 20px;
+        text-align: center;
+        font-size: 18px;
+        font-weight: bold;
+        color: #6a6a6a;
+    }
+</style>
+</head>
+
+<body>
+
+<h1>🌐 Browser History (Stack)</h1>
+
+<div class="container">
+    <input type="text" id="url" placeholder="Enter URL">
+    <button onclick="visit()">Visit</button>
+    <button onclick="goBack()">⬅ Back</button>
+    <button onclick="goForward()">Forward ➡</button>
+
+    <div class="current" id="currentPage">Current: None</div>
+
+    <div class="display">
+        <div class="box">
+            <h3>⬅ Back Stack</h3>
+            <div id="backStack"></div>
+        </div>
+
+        <div class="box">
+            <h3>➡ Forward Stack</h3>
+            <div id="forwardStack"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+class Stack {
+    constructor() {
+        this.items = [];
+    }
+
+    push(item) {
+        this.items.push(item);
+    }
+
+    pop() {
+        return this.items.pop();
+    }
+
+    peek() {
+        return this.items[this.items.length - 1];
+    }
+
+    isEmpty() {
+        return this.items.length === 0;
+    }
+
+    getAll() {
+        return [...this.items].reverse();
+    }
+}
+
+const backStack = new Stack();
+const forwardStack = new Stack();
+let current = null;
+
+function visit() {
+    const url = document.getElementById("url").value;
+
+    if (!url) {
+        alert("Enter a URL");
+        return;
+    }
+
+    if (current) {
+        backStack.push(current);
+    }
+
+    current = url;
+    forwardStack.items = []; // clear forward history
+
+    updateUI();
+}
+
+function goBack() {
+    if (backStack.isEmpty()) return;
+
+    forwardStack.push(current);
+    current = backStack.pop();
+
+    updateUI();
+}
+
+function goForward() {
+    if (forwardStack.isEmpty()) return;
+
+    backStack.push(current);
+    current = forwardStack.pop();
+
+    updateUI();
+}
+
+function updateUI() {
+    document.getElementById("currentPage").innerText =
+        "Current: " + (current || "None");
+
+    const backDiv = document.getElementById("backStack");
+    const forwardDiv = document.getElementById("forwardStack");
+
+    backDiv.innerHTML = "";
+    forwardDiv.innerHTML = "";
+
+    backStack.getAll().forEach(item => {
+        backDiv.innerHTML += `<div class="item">${item}</div>`;
+    });
+
+    forwardStack.getAll().forEach(item => {
+        forwardDiv.innerHTML += `<div class="item">${item}</div>`;
+    });
+}
+</script>
+
+</body>
+</html>
