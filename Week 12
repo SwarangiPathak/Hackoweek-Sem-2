@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Shopping Cart - Linked List</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: #fff;
+    }
+
+    h1 {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .container {
+        width: 80%;
+        margin: auto;
+        padding: 20px;
+        backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+
+    input, button {
+        padding: 10px;
+        margin: 5px;
+        border: none;
+        border-radius: 8px;
+        outline: none;
+    }
+
+    input {
+        width: 150px;
+    }
+
+    button {
+        cursor: pointer;
+        background: #ff7eb3;
+        color: white;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background: #ff4e8a;
+        transform: scale(1.05);
+    }
+
+    .cart {
+        margin-top: 20px;
+        padding: 10px;
+        background: rgba(0,0,0,0.2);
+        border-radius: 10px;
+    }
+
+    .item {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px;
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .total {
+        margin-top: 15px;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: right;
+    }
+</style>
+</head>
+
+<body>
+
+<h1>🛒 Shopping Cart (Linked List)</h1>
+
+<div class="container">
+    <input type="text" id="name" placeholder="Item Name">
+    <input type="number" id="price" placeholder="Price">
+    
+    <button onclick="insertHead()">Insert Head</button>
+    <button onclick="insertTail()">Insert Tail</button>
+    <button onclick="removeItem()">Remove by ID</button>
+
+    <div class="cart" id="cartDisplay"></div>
+    <div class="total" id="total"></div>
+</div>
+
+<script>
+    class Node {
+        constructor(id, name, price) {
+            this.id = id;
+            this.name = name;
+            this.price = price;
+            this.next = null;
+        }
+    }
+
+    class LinkedList {
+        constructor() {
+            this.head = null;
+            this.counter = 1;
+        }
+
+        insertAtHead(name, price) {
+            const node = new Node(this.counter++, name, price);
+            node.next = this.head;
+            this.head = node;
+        }
+
+        insertAtTail(name, price) {
+            const node = new Node(this.counter++, name, price);
+            if (!this.head) {
+                this.head = node;
+                return;
+            }
+
+            let temp = this.head;
+            while (temp.next) {
+                temp = temp.next;
+            }
+            temp.next = node;
+        }
+
+        removeById(id) {
+            if (!this.head) return;
+
+            if (this.head.id == id) {
+                this.head = this.head.next;
+                return;
+            }
+
+            let temp = this.head;
+            while (temp.next && temp.next.id != id) {
+                temp = temp.next;
+            }
+
+            if (temp.next) {
+                temp.next = temp.next.next;
+            }
+        }
+
+        display() {
+            let temp = this.head;
+            let result = [];
+            let total = 0;
+
+            while (temp) {
+                result.push(temp);
+                total += Number(temp.price);
+                temp = temp.next;
+            }
+
+            return { result, total };
+        }
+    }
+
+    const list = new LinkedList();
+
+    function insertHead() {
+        const name = document.getElementById("name").value;
+        const price = document.getElementById("price").value;
+
+        if (!name || !price) {
+            alert("Enter valid details");
+            return;
+        }
+
+        list.insertAtHead(name, price);
+        updateUI();
+    }
+
+    function insertTail() {
+        const name = document.getElementById("name").value;
+        const price = document.getElementById("price").value;
+
+        if (!name || !price) {
+            alert("Enter valid details");
+            return;
+        }
+
+        list.insertAtTail(name, price);
+        updateUI();
+    }
+
+    function removeItem() {
+        const id = prompt("Enter ID to remove:");
+        if (!id) return;
+
+        list.removeById(id);
+        updateUI();
+    }
+
+    function updateUI() {
+        const { result, total } = list.display();
+        const cart = document.getElementById("cartDisplay");
+
+        cart.innerHTML = "";
+
+        result.forEach(item => {
+            cart.innerHTML += `
+                <div class="item">
+                    <span>#${item.id} - ${item.name}</span>
+                    <span>₹${item.price}</span>
+                </div>
+            `;
+        });
+
+        document.getElementById("total").innerText = "Total: ₹" + total;
+    }
+</script>
+
+</body>
+</html>
